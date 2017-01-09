@@ -34,6 +34,9 @@ gem 'coderay', '>= 1.1.1'
 
 gem 'figaro', '>= 1.1.1'
 gem 'active_model_serializers', '0.10.6'
+gem 'carrierwave', '~> 1.0.0'
+gem 'mini_magick', '~> 4.6.0'
+gem 'rest-client', '~> 2.0.0'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby

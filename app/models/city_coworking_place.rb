@@ -1,0 +1,2 @@
+class CityCoworkingPlace < ApplicationRecord
+end

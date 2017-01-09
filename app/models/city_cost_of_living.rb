@@ -1,0 +1,2 @@
+class CityCostOfLiving < ApplicationRecord
+end

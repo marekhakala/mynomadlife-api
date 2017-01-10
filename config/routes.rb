@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         end
 
         match "coworking" => "cities#coworking", via: :get
+        match "image" => "cities#image", via: :get
       end
 
       # Fixer.io API with cache

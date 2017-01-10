@@ -18,9 +18,13 @@ development:
 
 production:
   <<: *default
-  database: myapp_production
-  username: myapp
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  host: 127.0.0.1
+  adapter: postgresql
+  encoding: utf8
+  database: mynomadlife_production
+  pool: 5
+  username: <%= ENV['MY_NOMAD_LIFE_DATABASE_USER'] %>
+  password: <%= ENV['MY_NOMAD_LIFE_DATABASE_PASSWORD'] %>
 
 #default: &default
 #  adapter: sqlite3

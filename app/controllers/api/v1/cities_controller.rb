@@ -4,7 +4,7 @@ module Api::V1
   class CitiesController < ApiController
     include CitiesHelper
 
-    before_action :set_city, only: [:show, :coworking]
+    before_action :set_city, only: [:show, :image, :coworking]
     before_action :set_cities, only: [:index, :create]
     before_action :set_exchange_rates, only: [:index, :exchange_rates]
 
@@ -29,6 +29,11 @@ module Api::V1
     def show
       serializable_resource = ActiveModelSerializers::SerializableResource.new(@city)
       render json: serializable_resource.as_json
+    end
+
+    def image
+      city_slug_image ="#{Rails.root}/public/uploads/city/image/#{@city.id}/#{@city.slug}.jpg"
+      send_file city_slug_image, type: "image/jpeg", disposition: "inline"
     end
 
     def coworking

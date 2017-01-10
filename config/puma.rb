@@ -1,47 +1,47 @@
+#!/usr/bin/env puma
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers a minimum and maximum.
 # Any libraries that use thread pools should be configured to match
 # the maximum value specified for Puma. Default is set to 5 threads for minimum
 # and maximum, this matches the default thread size of Active Record.
 #
-threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }.to_i
-threads threads_count, threads_count
 
-# Specifies the `port` that Puma will listen on to receive requests, default is 3000.
+directory ENV['RAILS_APP_PATH']
+
+# Min and Max threads per worker
+threads ENV['MIN_THREADS'], ENV['MAX_THREADS']
+
+rackup ENV['RAILS_APP_PATH'] + '/config.ru'
+environment 'production'
+
+# Daemonize the server into the background. Highly suggest that
+# this be combined with "pidfile" and "stdout_redirect".
+daemonize false
+
+# Store the pid of the server in the file at "path".
+pidfile ENV['RAILS_APP_PATH'] + '/tmp/pid/puma.pid'
+
+
+# Use "path" as the file to store the server info state. This is
+# used by "pumactl" to query and control the server.
+state_path ENV['RAILS_APP_PATH'] + '/tmp/puma.state'
+
+# Bind the server to "url". "tcp://", "unix://" and "ssl://" are the only
+# accepted protocols.
 #
-port        ENV.fetch("PORT") { 3000 }
+# The default is "tcp://0.0.0.0:9292".
 
-# Specifies the `environment` that Puma will run in.
+bind 'tcp://127.0.0.1:' + ENV['RAILS_APP_BIND_PORT']
+
+# === Puma control rack application ===
+
+# Start the puma control rack application on "url". This application can
+# be communicated with to control the main server. Additionally, you can
+# provide an authentication token, so all requests to the control server
+# will need to include that token as a query parameter. This allows for
+# simple authentication.
 #
-environment ENV.fetch("RAILS_ENV") { "development" }
+# Check out https://github.com/puma/puma/blob/master/lib/puma/app/status.rb
+# to see what the app has available.
 
-# Specifies the number of `workers` to boot in clustered mode.
-# Workers are forked webserver processes. If using threads and workers together
-# the concurrency of the application would be max `threads` * `workers`.
-# Workers do not work on JRuby or Windows (both of which do not support
-# processes).
-#
-# workers ENV.fetch("WEB_CONCURRENCY") { 2 }
-
-# Use the `preload_app!` method when specifying a `workers` number.
-# This directive tells Puma to first boot the application and load code
-# before forking the application. This takes advantage of Copy On Write
-# process behavior so workers use less memory. If you use this option
-# you need to make sure to reconnect any threads in the `on_worker_boot`
-# block.
-#
-# preload_app!
-
-# The code in the `on_worker_boot` will be called if you are using
-# clustered mode by specifying a number of `workers`. After each worker
-# process is booted this block will be run, if you are using `preload_app!`
-# option you will want to use this block to reconnect to any threads
-# or connections that may have been created at application boot, Ruby
-# cannot share connections between processes.
-#
-# on_worker_boot do
-#   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
-# end
-
-# Allow puma to be restarted by `rails restart` command.
-plugin :tmp_restart
+activate_control_app 'unix://' + ENV['RAILS_APP_PATH'] + '/run/pumactl.sock'

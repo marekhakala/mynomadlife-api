@@ -1,0 +1,226 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="text-center">MyNomadLife API V1</h1>
+    <hr />
+    <h2><b>Endpoints</b></h2>
+    <hr />
+
+    <h4><b>[Cities]</b></h4>
+    <ul>
+      <li class="list-unstyled">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><span class="badge">GET</span> /api/v1/cities</div>
+          <div class="panel-body">
+            The list of cities<br />
+            <b>Return type:</b> <a href="#cities_entity">Cities Entity</a> or <a href="#error_entity">Error Entity</a>
+          </div>
+        </div>
+      </li>
+      <li class="list-unstyled">
+        <div class="panel panel-success">
+          <div class="panel-heading"><span class="badge">POST</span> /api/v1/cities/search</div>
+          <div class="panel-body">
+            Find a city by name<br />
+            <b>Return type:</b> <a href="#cities_entity">Cities Entity</a> or <a href="#error_entity">Error Entity</a>
+          </div>
+        </div>
+      </li>
+      <li class="list-unstyled">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><span class="badge">GET</span> /api/v1/cities/<i>:slug</i></div>
+          <div class="panel-body">
+            Find a city by slug name<br />
+            <b>Return type:</b> <a href="#city_entity">City Entity</a> or <a href="#error_entity">Error Entity</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-unstyled">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><span class="badge">GET</span> /api/v1/cities/<i>:city_slug</i>/coworking</div>
+          <div class="panel-body">
+            The list of coworking places for selected city<br />
+            <b>Return type:</b> <a href="#city_entity">City Entity</a> or <a href="#error_entity">Error Entity</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <h4><b>[Exchange Rates]</b></h4>
+    <ul>
+      <li class="list-unstyled">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><span class="badge">GET</span> /api/v1/exchange_rates</div>
+          <div class="panel-body">
+            Exchange rates table<br />
+            <b>Return type:</b> <a href="#exchange_rates_entity">ExchangeRates Entity</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <h2><b>Models</b></h2>
+    <hr />
+    <ul>
+      <li class="list-unstyled">
+        <div id="cities_entity" class="panel panel-default">
+          <div class="panel-heading"><b>Cities</b> Entity</div>
+          <div class="panel-body">
+            <ul>
+              <li><b>total_entries</b> (integer)</li>
+              <li><b>total_pages</b> (integer)</li>
+              <li><b>per_page</b> (integer)</li>
+              <li><b>current_page</b> (integer)</li>
+              <li><b>entries</b> (Array of <a href="#city_entity">City</a> entities)</b>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li class="list-unstyled">
+        <div id="city_entity" class="panel panel-default">
+          <div class="panel-heading"><b>City</b> Entity</div>
+          <div class="panel-body">
+            <ul>
+              <li><b>slug</b> (string)</li>
+              <li><b>region</b> (string)</li>
+              <li><b>country</b> (string)</li>
+              <li><b>temperature_c</b> (integer)</li>
+              <li><b>temperature_f</b> (integer)</li>
+              <li><b>humidity</b> (integer)</li>
+              <li><b>rank</b> (integer)</li>
+              <li><b>cost_per_month</b> (string)</li>
+              <li><b>internet_speed</b> (integer)</li>
+              <li><b>population</b> (string)</li>
+              <li><b>gender_ratio</b> (string)</li>
+              <li><b>religious</b> (string)</li>
+              <li><b>city_currency</b> (string)</li>
+              <li><b>city_currency_rate</b> (string)</li>
+              <li><b>scores</b> (<a href="#score_entity">Score</a> Model)</li>
+              <li><b>cost_of_living</b> (<a href="#cost_of_living_entity">CostOfLiving</a> Model)</li>
+              <li><b>image</b> (string)</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li class="list-unstyled">
+        <div id="score_entity" class="panel panel-default">
+          <div class="panel-heading"><b>Score</b> Entity</div>
+          <div class="panel-body">
+            <ul>
+              <li><b>nomad_score</b> (string)</li>
+              <li><b>life_score</b> (string)</li>
+              <li><b>cost</b> (integer)</li>
+              <li><b>internet</b> (integer)</li>
+              <li><b>fun</b> (integer)</li>
+              <li><b>safety</b> (integer)</li>
+              <li><b>peace</b> (integer)</li>
+              <li><b>nightlife</b> (integer)</li>
+              <li><b>free_wifi_in_city</b> (integer)</li>
+              <li><b>places_to_work</b> (integer)</li>
+              <li><b>ac_or_heating</b> (integer)</li>
+              <li><b>friendly_to_foreigners</b> (integer)</li>
+              <li><b>female_friendly</b> (integer)</li>
+              <li><b>gay_friendly</b> (integer)</li>
+              <li><b>startup_score</b> (string)</li>
+              <li><b>english_speaking</b> (integer)</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li class="list-unstyled">
+        <div id="cost_of_living_entity" class="panel panel-default">
+          <div class="panel-heading"><b>CostOfLiving</b> Entity</div>
+          <div class="panel-body">
+            <ul>
+              <li><b>nomad_cost</b> (string)</li>
+              <li><b>expat_cost_of_living</b> (string)</li>
+              <li><b>local_cost_of_living</b> (string)</li>
+              <li><b>one_bedroom_apartment</b> (string)</li>
+              <li><b>hotel_room</b> (string)</li>
+              <li><b>airbnb_apartment_month</b> (string)</li>
+              <li><b>airbnb_apartment_day</b> (string)</li>
+              <li><b>coworking_space</b> (string)</li>
+              <li><b>coca_cola_in_cafe</b> (string)</li>
+              <li><b>pint_of_beer_in_bar</b> (string)</li>
+              <li><b>cappucino_in_cafe</b> (string)</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-unstyled">
+        <div id="coworking_places_entity" class="panel panel-default">
+          <div class="panel-heading"><b>CoworkingPlaces</b> Entity</div>
+          <div class="panel-body">
+            <ul>
+              <li><b>total_entries</b> (string)</li>
+              <li><b>entries</b> (Array of <a href="#coworking_place_entity">CoworkingPlace</a> entities)</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-unstyled">
+        <div id="coworking_place_entity" class="panel panel-default">
+          <div class="panel-heading"><b>CoworkingPlace</b> Entity</div>
+          <div class="panel-body">
+            <ul>
+              <li><b>slug</b> (string)</li>
+              <li><b>name</b> (string)</li>
+              <li><b>sub_name</b> (string)</li>
+              <li><b>coworking_type</b> (string)</li>
+              <li><b>distance</b> (string)</li>
+              <li><b>lat</b> (string)</li>
+              <li><b>lng</b> (string)</li>
+              <li><b>data_url</b> (string)</li>
+              <li><b>image_url</b> (string)</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-unstyled">
+        <div id="exchange_rates_entity" class="panel panel-default">
+          <div class="panel-heading"><b>ExchangeRates</b> Entity</div>
+          <div class="panel-body">
+            <ul>
+              <li><b>exchange_rates</b> (Array of <a href="#exchange_rate_entity">ExchangeRate</a> entities)</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-unstyled">
+        <div id="exchange_rate_entity" class="panel panel-default">
+          <div class="panel-heading"><b>ExchangeRate</b> Entity</div>
+          <div class="panel-body">
+            <ul>
+              <li><b>base</b> (string)</li>
+              <li><b>update_date</b> (string)</li>
+              <li><b>currency_code</b> (string)</li>
+              <li><b>currency_rate</b> (string)</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-unstyled">
+        <div id="error_entity" class="panel panel-default">
+          <div class="panel-heading"><b>Error</b> Entity</div>
+          <div class="panel-body">
+            <ul>
+              <li><b>status</b> (string)</li>
+              <li><b>errors</b> (string)</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <hr />
+  &nbsp;&nbsp;© Copyright 2017<br />
+  <br />
+</div>

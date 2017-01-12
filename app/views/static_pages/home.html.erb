@@ -21,6 +21,7 @@
           <div class="panel-heading"><span class="badge">POST</span> /api/v1/cities/search</div>
           <div class="panel-body">
             Find a city by name<br />
+            <b>Parameter:</b> slugs<br />
             <b>Return type:</b> <a href="#cities_entity">Cities Entity</a> or <a href="#error_entity">Error Entity</a>
           </div>
         </div>
@@ -41,6 +42,15 @@
           <div class="panel-body">
             The list of coworking places for selected city<br />
             <b>Return type:</b> <a href="#city_entity">City Entity</a> or <a href="#error_entity">Error Entity</a>
+          </div>
+        </div>
+      </li>
+      <li class="list-unstyled">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><span class="badge">GET</span> /api/v1/cities/<i>:city_slug</i>/image</div>
+          <div class="panel-body">
+            The poster image for selected city<br />
+            <b>Return type:</b> Image file or <a href="#error_entity">Error Entity</a>
           </div>
         </div>
       </li>
@@ -147,7 +157,6 @@
           </div>
         </div>
       </li>
-
       <li class="list-unstyled">
         <div id="coworking_places_entity" class="panel panel-default">
           <div class="panel-heading"><b>CoworkingPlaces</b> Entity</div>
@@ -159,7 +168,6 @@
           </div>
         </div>
       </li>
-
       <li class="list-unstyled">
         <div id="coworking_place_entity" class="panel panel-default">
           <div class="panel-heading"><b>CoworkingPlace</b> Entity</div>
@@ -178,7 +186,6 @@
           </div>
         </div>
       </li>
-
       <li class="list-unstyled">
         <div id="exchange_rates_entity" class="panel panel-default">
           <div class="panel-heading"><b>ExchangeRates</b> Entity</div>
@@ -189,7 +196,6 @@
           </div>
         </div>
       </li>
-
       <li class="list-unstyled">
         <div id="exchange_rate_entity" class="panel panel-default">
           <div class="panel-heading"><b>ExchangeRate</b> Entity</div>
@@ -203,7 +209,6 @@
           </div>
         </div>
       </li>
-
       <li class="list-unstyled">
         <div id="error_entity" class="panel panel-default">
           <div class="panel-heading"><b>Error</b> Entity</div>

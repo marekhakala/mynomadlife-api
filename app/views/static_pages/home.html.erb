@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="text-center">MyNomadLife API V1</h1>
+    <h1 class="text-center"><%= image_tag 'api_icon.png' %> MyNomadLife API V1</h1>
     <hr />
     <h2><b>Endpoints</b></h2>
     <hr />
@@ -11,7 +11,7 @@
         <div class="panel panel-primary">
           <div class="panel-heading"><span class="badge">GET</span> /api/v1/cities</div>
           <div class="panel-body">
-            The list of cities<br />
+            List of cities<br />
             <b>Return type:</b> <a href="#cities_entity">Cities Entity</a> or <a href="#error_entity">Error Entity</a>
           </div>
         </div>
@@ -35,12 +35,11 @@
           </div>
         </div>
       </li>
-
       <li class="list-unstyled">
         <div class="panel panel-primary">
           <div class="panel-heading"><span class="badge">GET</span> /api/v1/cities/<i>:city_slug</i>/coworking</div>
           <div class="panel-body">
-            The list of coworking places for selected city<br />
+            List of coworking places for selected city<br />
             <b>Return type:</b> <a href="#city_entity">City Entity</a> or <a href="#error_entity">Error Entity</a>
           </div>
         </div>
@@ -49,7 +48,7 @@
         <div class="panel panel-primary">
           <div class="panel-heading"><span class="badge">GET</span> /api/v1/cities/<i>:city_slug</i>/image</div>
           <div class="panel-body">
-            The poster image for selected city<br />
+            Poster image for selected city<br />
             <b>Return type:</b> Image file or <a href="#error_entity">Error Entity</a>
           </div>
         </div>

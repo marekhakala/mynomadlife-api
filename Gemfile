@@ -10,8 +10,6 @@ gem 'rails', '~> 5.0.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
-# Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
 # Use PostgreSQL as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -36,6 +34,7 @@ gem 'coderay', '>= 1.1.1'
 
 gem 'figaro', '>= 1.1.1'
 gem 'active_model_serializers', '0.10.6'
+gem 'will_paginate', '~> 3.1.5'
 gem 'carrierwave', '~> 1.0.0'
 gem 'mini_magick', '~> 4.6.0'
 gem 'rest-client', '~> 2.0.0'
@@ -60,6 +59,8 @@ group :development do
 end
 
 group :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
   gem 'factory_girl_rails', '>= 4.6.0'
   gem 'shoulda-matchers', '>= 3.1.1'
   gem 'faker'

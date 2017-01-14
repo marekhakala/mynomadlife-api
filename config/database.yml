@@ -16,6 +16,13 @@ development:
   <<: *default
   database: myapp_development
 
+test:
+  <<: *default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+  database: db/test.sqlite3
+
 production:
   <<: *default
   host: 127.0.0.1

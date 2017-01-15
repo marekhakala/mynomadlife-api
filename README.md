@@ -35,7 +35,8 @@ This Ruby on Rails application provides an implementation of back-end API soluti
  * [Carrierwave](https://github.com/carrierwaveuploader/carrierwave) - Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
  * [mini-magick](https://github.com/minimagick/minimagick) - A ruby wrapper for ImageMagick or GraphicsMagick
  * [Rest client](https://github.com/rest-client/rest-client) - A simple HTTP and REST client for Ruby language
-
+ * [RSpec](http://rspec.info/) - Behaviour Driven Development for Ruby
+ 
 # License - Apache License, Version 2.0
 
 ```

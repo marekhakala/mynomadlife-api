@@ -1,8 +1,8 @@
-# MyNomadLife API V1 1.0.0
+# My Nomad Life API v1.0.0
 
-![MyNomadLifeAPI logo](Screenshots/mynomadlifeapi_logo.png)
+![MyNomadLifeAPI logo](Screenshots/mynomadlifeapi.png)
 
-This Ruby on Rails application provides an implementation of back-end API solution for Android application MyNomadLife. The project uses PostgreSQL database as database backend and ActiveModelSerializer for serialization database data to JSON format.
+My Nomad Life API is an application that provides an implementation of a back-end API for the Android application My Nomad Life. The project uses a PostgreSQL database as database back-end and ActiveModelSerializer for the serialization of database data to JSON format.
 
 [Screenshots](Screenshots/)
 
@@ -15,7 +15,7 @@ This Ruby on Rails application provides an implementation of back-end API soluti
 
 * Create a database `bundle exec rake db:create`
 * Migrate database tables `bundle exec rake db:migrate`
-* Copy data to `./db/csvs/` and `./db/images/`
+* Copy data into `./db/csvs/` and `./db/images/`
 * Populate a database `bundle exec rake db:seed`
 
 ## Requirements
@@ -36,7 +36,7 @@ This Ruby on Rails application provides an implementation of back-end API soluti
  * [mini-magick](https://github.com/minimagick/minimagick) - A ruby wrapper for ImageMagick or GraphicsMagick
  * [Rest client](https://github.com/rest-client/rest-client) - A simple HTTP and REST client for Ruby language
  * [RSpec](http://rspec.info/) - Behaviour Driven Development for Ruby
- 
+
 # License - Apache License, Version 2.0
 
 ```
